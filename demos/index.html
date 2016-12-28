@@ -3,12 +3,12 @@
 <html id="home" lang="en">
 
 <head>
-    <title>Genesis</title>
+    <title>FRAME RESEARCHE & DEVELOPMENT</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="author" type="text/html" href="https://plus.google.com/+MuazKhan">
-    <meta name="author" content="Anupam Mallick">
+    <meta name="author" content="Muaz Khan">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
  
     
@@ -212,7 +212,7 @@ table, tbody, tr, td {
     line-height: 25.6000003814697px;
     
   }
-   p { font-size:44px; color: #2bcdc1;}
+  p { font-size:44px; color: #2bcdc1;}
 	h6{
 		font-size:18px;
 		margin-top: -86px;
@@ -229,10 +229,11 @@ table, tbody, tr, td {
     <!-- for HTML5 el styling -->
     
 
-    
- <script src="https://cdn.webrtc-experiment.com/RTCMultiConnection.js"></script>
- <script src="//cdn.webrtc-experiment.com/firebase.js"></script>
-
+    <script src="//cdn.webrtc-experiment.com/firebase.js">
+    </script>
+    <script src="//cdn.webrtc-experiment.com/RTCMultiConnection.js">
+    </script>
+<script src="https://cdn.webrtc-experiment.com/RTCMultiConnection-v2.2.1.js"></script>
 
 
 
@@ -254,9 +255,7 @@ table, tbody, tr, td {
 		<td>
 		
             <button id="start-new-session">Start New Video Session</button>
-			<div id="buttons-container">
-    <button id="broadcast-all-cameras" disabled>Broadcast All Cameras</button>
-</div>
+			<button id="broadcast-all-cameras" disabled>Broadcast All Cameras</button>
 		</td>
 		</tr>
 		</table>
@@ -309,7 +308,6 @@ table, tbody, tr, td {
 
         <script>
 		
-		
 
         // window.username = Math.random() * 9999 << 9999;
         var connection = new RTCMultiConnection();
@@ -331,8 +329,11 @@ table, tbody, tr, td {
                 session.join();
                 document.getElementById('start-new-session').disabled = true;
                 sessionsList.style.display = 'none';
+				
             };
+			
         };
+		
         // check if user is ejected
         // clear rooms-list if user is ejected
         connection.onSessionClosed = function(event) {
@@ -345,12 +346,15 @@ table, tbody, tr, td {
             if (!window.username) window.username = prompt('Please enter your username') || 'Anonymous';
             connection.extra = {
                 username: window.username
+				
             };
             connection.sessionid = window.username;
             connection.open();
             document.getElementById('start-new-session').disabled = true;
             sessionsList.style.display = 'none';
+			
         };
+		
         connection.onstream = function(stream) {
             var div = document.createElement('div');
             div.className = 'video-container';
@@ -370,7 +374,7 @@ table, tbody, tr, td {
             div.appendChild(stream.mediaElement);
             if (stream.type === 'local') {
                 document.getElementById('local-video-container').appendChild(div);
-            }
+								            }
             if (stream.type === 'remote') {
                 var remoteVideosContainer = document.getElementById('remote-videos-container');
                 remoteVideosContainer.appendChild(div, remoteVideosContainer.firstChild);
@@ -406,7 +410,7 @@ connection.DetectRTC.load(function() {
                     connection.dontCaptureUserMedia = true;
                     if (document.getElementById('broadcast-all-cameras').disabled == true) {
                         document.getElementById('broadcast-all-cameras').disabled = false;
-                        // document.getElementById('broadcast-all-cameras').style.background = '-webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.05, rgb(143, 231, 253)), to(rgb(255, 255, 255)))';
+						// document.getElementById('broadcast-all-cameras').style.background = '-webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.05, rgb(143, 231, 253)), to(rgb(255, 255, 255)))';
                         document.getElementById('broadcast-all-cameras').style.background = '-webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.05, rgb(195, 35, 56)), to(rgb(255, 15, 15)))';
                         document.getElementById('broadcast-all-cameras').style.color = 'white';
                     }
@@ -417,7 +421,6 @@ connection.DetectRTC.load(function() {
         });
     });
 });
-        
         </script>
 
         <br/>
