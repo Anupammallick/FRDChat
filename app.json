@@ -1,0 +1,8 @@
+{
+  "name": "FRDChat",
+  "description": "A Video Chat using webrtc",
+  "repository": "https://github.com/Anupammallick/FRDChat",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["webrtc", "FRDChat", "videochat"],
+  "image": "heroku/nodejs"
+}
