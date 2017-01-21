@@ -37,11 +37,11 @@ function serverHandler(request, response) {
         try {
             stats = fs.lstatSync(filename);
 
-            if (filename && filename.search(/demos/g) === -1 && stats.isDirectory()) {
+            if (filename && filename.search(/FRD/g) === -1 && stats.isDirectory()) {
                 response.writeHead(200, {
                     'Content-Type': 'text/html'
                 });
-                response.write('<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=/demos/"></head><body></body></html>');
+                response.write('<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=/FRD/"></head><body></body></html>');
                 response.end();
                 return;
             }
@@ -59,14 +59,14 @@ function serverHandler(request, response) {
                 'Content-Type': 'text/html'
             });
 
-            if (filename.indexOf('/demos/MultiRTC/') !== -1) {
-                filename = filename.replace('/demos/MultiRTC/', '');
-                filename += '/demos/MultiRTC/index.html';
-            } else if (filename.indexOf('/demos/') !== -1) {
-                filename = filename.replace('/demos/', '');
-                filename += '/demos/index.html';
+            if (filename.indexOf('/FRD/MultiRTC/') !== -1) {
+                filename = filename.replace('/FRD/MultiRTC/', '');
+                filename += '/FRD/MultiRTC/index.html';
+            } else if (filename.indexOf('/FRD/') !== -1) {
+                filename = filename.replace('/FRD/', '');
+                filename += '/FRD/index.html';
             } else {
-                filename += '/demos/index.html';
+                filename += '/FRD/index.html';
             }
         }
 
@@ -82,19 +82,19 @@ function serverHandler(request, response) {
             }
 
             try {
-                var demos = (fs.readdirSync('demos') || []);
+                var FRD = (fs.readdirSync('FRD') || []);
 
-                if (demos.length) {
+                if (FRD.length) {
                     var h2 = '<h2 style="text-align:center;display:block;"><a href="https://www.npmjs.com/package/rtcmulticonnection-v3"><img src="https://img.shields.io/npm/v/rtcmulticonnection-v3.svg"></a><a href="https://www.npmjs.com/package/rtcmulticonnection-v3"><img src="https://img.shields.io/npm/dm/rtcmulticonnection-v3.svg"></a><a href="https://travis-ci.org/muaz-khan/RTCMultiConnection"><img src="https://travis-ci.org/muaz-khan/RTCMultiConnection.png?branch=master"></a></h2>';
-                    var otherDemos = '<section class="experiment" id="demos"><details><summary style="text-align:center;">Check ' + (demos.length - 1) + ' other RTCMultiConnection-v3 demos</summary>' + h2 + '<ol>';
-                    demos.forEach(function(f) {
+                    var otherFRD = '<section class="experiment" id="FRD"><details><summary style="text-align:center;">Check ' + (FRD.length - 1) + ' other RTCMultiConnection-v3 FRD</summary>' + h2 + '<ol>';
+                    FRD.forEach(function(f) {
                         if (f && f !== 'index.html' && f.indexOf('.html') !== -1) {
-                            otherDemos += '<li><a href="/demos/' + f + '">' + f + '</a> (<a href="https://github.com/muaz-khan/RTCMultiConnection/tree/master/demos/' + f + '">Source</a>)</li>';
+                            otherFRD += '<li><a href="/FRD/' + f + '">' + f + '</a> (<a href="https://github.com/muaz-khan/RTCMultiConnection/tree/master/FRD/' + f + '">Source</a>)</li>';
                         }
                     });
-                    otherDemos += '<ol></details></section><section class="experiment own-widgets latest-commits">';
+                    otherFRD += '<ol></details></section><section class="experiment own-widgets latest-commits">';
 
-                    file = file.replace('<section class="experiment own-widgets latest-commits">', otherDemos);
+                    file = file.replace('<section class="experiment own-widgets latest-commits">', otherFRD);
                 }
             } catch (e) {}
 
