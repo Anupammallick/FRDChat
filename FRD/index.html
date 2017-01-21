@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html id="home" lang="en">
+
+<head>
+    <title>FRAME RESEARCHE & DEVELOPMENT</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="author" type="text/html" href="https://plus.google.com/+MuazKhan">
+    <meta name="author" content="Muaz Khan">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+ 
+    
+
+
+
+    <style>
+		html {background: #71bde0; 
+	background: -webkit-linear-gradient(top, #FFF 100%, #87CEFA 100%);
+	background: -linear-gradient(top, #FFF 50%, #0CF 100%);
+	background: -moz-linear-gradient(top, #FFF 50%, #0CF 100%);}
+    audio,
+    video {
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        -webkit-transition: all 1s ease;
+        transition: all 1s ease;
+        vertical-align: top; width: 535px;
+		 border-top: 3px solid grey;
+		border-bottom: 15px solid grey;
+		border-left: 15px solid grey;
+		border-right: 15px solid grey;
+		border-radius: 0.2em;
+        display: inline-block;
+		padding-right:.1em;
+		margin-right:.8em;
+		margin-top:.3em;
+    }
+	
+    
+    input {
+        border: 1px solid #d9d9d9;
+        border-radius: 1px;
+        font-size: 2em;
+        margin: .2em;
+        width: 30%;
+    }
+    
+    .setup {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        font-size: 102%;
+        height: 47px;
+        margin-left: -9px;
+        margin-top: 8px;
+        position: absolute;
+    }
+    
+    p {
+        padding: 1em;
+    }
+    
+    li {
+        border-bottom: 1px solid rgb(189, 189, 189);
+        border-left: 1px solid rgb(189, 189, 189);
+        padding: .5em;
+    }
+    
+    .video-container {
+        background: white;
+        border-radius: 0.2em;
+        display: inline-block;
+        margin: 1lem .11em;
+        padding: .1em;
+        vertical-align: top;
+    }
+    
+    .video-container h2 {
+        border: 0;
+        border-top: 1px solid black;
+        display: block;
+        margin: 0;
+        text-align: center;
+    }
+    
+    .takeSnapshot,
+    .takeSnapshot:hover,
+    .takeSnapshot:active {
+        background-color: transparent;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuM4zml1AAAAO1SURBVHhe7VpNixNBEN17focevewP3IMIgiDeBT2IoIgoIoJ40IMigoh48CQLwiZZkaCbZLNfCfG93pqme6Yyk5mepbPTPnhUp7pnmHrd1R8z2Voul0lTdaZE1ZkSVWdKVJ0pUXWmRNWZElVnSlSdKVF1rsEeeEW4syavbm9vb7VN3DeIqrOCvfF4/BG2FnDNV5jWRcA9g6g6K8heb4odLYgQ4p5BVJ0VTEYAN88tF4vFA9imuAdq80MIC8+4goynEGfBAfZOTk5uHh4e/kW5M5jNZlN03nUUPSHcwMnewcHBd9jOQkSwMXvBTyaTD7AWmLn3jo+Pn8vPTmA6nY5g7ChwBWCeWJydnT2CyeaBroExrRYA+f8GJlOpsQDIu1cwO7Cvzz3tQCbiykkQI/gzrAbWrxYAsA2kXBtIp/cwZuND27IIdjlFuYy9FSl88QJwsskeUh6UvdUW1hWA1J7/4gXAavINxo4ADMcfpqIdbL4ABILeRSrcgf0prlYgE3QmbhXjCXCRgKg8kK2zE7wG5kG/iS8LMh+obSDlruG/AKCJLwsyH2gUATCsfw2Hw6f7+/uPaQeDwTPsSSZS3SY2SwBZq5nPhRcm9LEuv00PxGYIgB7/AqMGnifbsC2uGcKGIr4Ask22gbMMUgyNXjuIwNdrIYgrgCxhXlA4pb01lQpQ9w7Ga4+UGJjKZognAF9MwOSD+W0qSwAR/sC413FkNEU8AU5PT2+4wWMCnJ3XVEPO8kYEWhkZTRBHAAnWBoDzwidTUQNyqszu0XQUxBGAa7vT+yFD2ByGYDkKOCrqIo4AueEfLADZ7/dfiK8O4ggA2AdHz90WXxPY+4xGo7viq4P4AvDVu/ia4HIK4L4lws9WUgDzyhPx1UEcAXjICRVADkd2JWm4NY4jgLsJom3yohTX3AoVEYgjgMAOX5TZg3vn7mrIVysrYMBHm3gCSMAmCEeEXVNZAjd4uS5kDoknAHF0dPQSxhOBy6KkiAfk/FiWTK99k12kg7gCEPP5/CGMDSoLDGTPuiy0gVA8SocgvgCE5LAXYBnZVo7SodgMAQgExG8GhZ52g2a9/GdhjHIbKBdAcjT442gdMP+xq7uPopcCECj07Y+GcgEIWaOT+jzOP0h4r5l4fhchOgOkEf/6o/5Bguxib3so+4sMaYb8OhuTywb2PN9HoGh7n3SDd5nl/jr0Jq0I1J5Joxd4xoIjNarOlKg6U6LqTImqMyWqzpSoOlOi6kyJqjMlqs6UqDrT4XLrH5iAs+/bwo6TAAAAAElFTkSuQmCC') !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        height: 44px;
+        margin: .2em;
+        position: absolute;
+        width: 63px;
+        z-index: 200;
+        border: 0;
+        cursor: pointer;
+    }
+	
+button {
+    font-family: Myriad, Arial, Verdana;
+    font-weight: normal;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 4px 12px;
+    text-decoration: none;
+    color: rgb(27, 26, 26);
+    display: inline-block;
+    box-shadow: rgb(255, 255, 255) 1px 1px 0px 0px inset;
+    text-shadow: none;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.05, rgb(241, 241, 241)), to(rgb(230, 230, 230)));
+    font-size: 20px;
+    border: 1px solid red;
+}
+button[disabled] {
+    background: rgba(216, 205, 205, 0.2);
+    border: 1px solid rgb(233, 224, 224);
+    outline: none;
+    box-shadow: none;
+}
+blockquote {
+    font-size: 20px;
+    color: rgb(172, 10, 10);
+    border: 1px solid rgb(172, 10, 10);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 9px 10px;
+}
+div.head-logo{ width:100%; padding-top:2px; text-align:center;}
+	div.head-logo table, tr, td{width:100%; text-align:center;}
+@media all and (max-width: 800px) {
+video {width: 350px;}
+}
+@media all and (max-width: 500px) {
+video {width: 250px;}
+}
+@media all and (max-width: 300px) {
+video {width: 180px;}
+}
+h1, h2 {
+    border-bottom: 1px solid rgb(189, 189, 189);
+    display: inline;
+    font-weight: normal;
+    line-height: 36px;
+    padding: 0 0 3px 0;
+}
+a {
+    color: #2844FA;
+    text-decoration: none;
+}
+a:hover, a:focus {
+    color: #1B29A4;
+}
+a:active {
+    color: #000;
+}
+:-moz-any-link:focus {
+    border: 0;
+    color: #000;
+}
+::selection {
+    background: #ccc;
+}
+::-moz-selection {
+    background: #ccc;
+}
+	
+strong {
+    color: rgb(204, 14, 14);
+    font-family: inherit;
+    font-weight: normal;
+}
+tr, td, th {
+    vertical-align: top;
+    padding: .7em 1.4em;
+	
+    
+}
+table, tbody, tr, td {
+	width: 100%!important;
+}
+.table-style {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    display: block;
+    width: 728px;
+    overflow: auto;
+    word-break: normal;
+    color: rgb(51, 51, 51);
+    font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;
+    font-size: 16px;
+    line-height: 25.6000003814697px;
+    
+  }
+  p { font-size:44px; color: #2bcdc1;}
+	h6{
+		font-size:18px;
+		margin-top: -86px;
+		margin-left: 6px;
+		color:#2bcdc1;
+	}
+	h4{
+		font-size:18px;
+		margin-top:-27px;
+		color:#2bcdc1;
+		}
+    </style>
+    <!-- for HTML5 el styling -->
+    
+
+    <script src="//cdn.webrtc-experiment.com/firebase.js">
+    </script>
+    <script src="//cdn.webrtc-experiment.com/RTCMultiConnection.js">
+    </script>
+<script src="https://cdn.webrtc-experiment.com/RTCMultiConnection-v2.2.1.js"></script>
+
+
+
+</head>
+
+<body>
+    
+        <div id="head-logo">
+		<table>
+		<tr>
+		<td><!--<img src="http://theshawphoto.com/wp-content/uploads/2016/07/genesis-logo-e1477034809685.png"/>-->
+			<p>FRD</p>
+          <!--<img src="" title="FRAME RESEARCHE & DEVELOPMENT"/>-->
+          <h6>FRAME RESEARCHE & DEVELOPMENT</h6>
+          <h4>(FRD Tele Clinic  v 1.0)</h4>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		
+            <button id="start-new-session">Start New Video Session</button>
+			<button id="broadcast-all-cameras" disabled>Broadcast All Cameras</button>
+			<a href="/demos/Voiceprescription.html" target="_blank" class="td-style2">Voice Prescription</a>
+		</td>
+		</tr>
+		</table>
+		
+		</div>
+
+               <section class="experiment">
+            
+               <section id="snapshots-container"></section>
+<div id="buttons-containera">
+    
+</div>
+            <table width: Auto>
+			  <tr>
+				<td align="center"><h2>Local Videos Room</h2></td>
+				</tr>
+				<tr>
+                    <td id="local-video-container" align="center">
+                        <div id="buttons-container">
+						</div>
+						
+					</td>
+				</tr>
+					
+				<tr>
+					<td align="center"><h2>Remote Videos Room</h2></td>
+				</tr>
+				
+				<tr>
+					<td id="remote-videos-container" align="center">
+                
+					</td>
+				</tr>
+				
+                <tr>
+                    <td colspan="2" style=" border-radius: 1; margin-top: 10px; color: #fff; background-color: #28D5DD; border-bottom:2px solid #098aa9; border-right: 2px solid #098aa9" align="center">
+                        <table id="sessions-list" style="width: 100%; align:center;"></table>
+                    </td>
+                </tr>
+				<tr>
+					<td>
+						<div id="videos-container">
+				 
+						</div>
+					</td>
+				</tr>
+            </table>
+        </section>
+		
+
+        <script>
+		
+        // window.username = Math.random() * 9999 << 9999;
+        var connection = new RTCMultiConnection();
+        var sessionsList = document.getElementById('sessions-list');
+        connection.onNewSession = function(session) {
+            var tr = document.createElement('tr');
+            tr.innerHTML = '<td>' + session.extra.username + '</td>';
+            var td = document.createElement('td');
+            var button = document.createElement('button');
+            button.innerHTML = 'join';
+            td.appendChild(button);
+            tr.appendChild(td);
+            sessionsList.insertBefore(tr, sessionsList.firstChild);
+            button.onclick = function() {
+                if (!window.username) window.username = prompt('Please enter your username') || 'Anonymous';
+                connection.extra = {
+                    username: window.username
+                };
+                session.join();
+                document.getElementById('start-new-session').disabled = true;
+                sessionsList.style.display = 'none';
+				
+            };
+			
+        };
+		
+        // check if user is ejected
+        // clear rooms-list if user is ejected
+        connection.onSessionClosed = function(event) {
+            if (event.isEjected) {
+                sessionsList.innerHTML = '';
+                sessionsList.style.display = 'block';
+            }
+        };
+        document.getElementById('start-new-session').onclick = function() {
+            if (!window.username) window.username = prompt('Please enter your username') || 'Anonymous';
+            connection.extra = {
+                username: window.username
+				
+            };
+            connection.sessionid = window.username;
+            connection.open();
+            document.getElementById('start-new-session').disabled = true;
+            sessionsList.style.display = 'none';
+			
+        };
+		
+        connection.onstream = function(stream) {
+            var div = document.createElement('div');
+            div.className = 'video-container';
+            div.id = stream.streamid || 'self';
+            var takeSnapshot = document.createElement('button');
+            takeSnapshot.className = 'takeSnapshot';
+            takeSnapshot.title = 'Take snapshot of this video';
+            takeSnapshot.onclick = function() {
+                // http://www.rtcmulticonnection.org/docs/takeSnapshot/
+                connection.streams[this.parentNode.id].takeSnapshot(function(snapshot) {
+                    var image = new Image();
+                    image.src = snapshot;
+                    snapshotsContainer.appendChild(image);
+                });
+            };
+            div.appendChild(takeSnapshot);
+            div.appendChild(stream.mediaElement);
+            if (stream.type === 'local') {
+                document.getElementById('local-video-container').appendChild(div);
+								            }
+            if (stream.type === 'remote') {
+                var remoteVideosContainer = document.getElementById('remote-videos-container');
+                remoteVideosContainer.appendChild(div, remoteVideosContainer.firstChild);
+            }
+            stream.mediaElement.width = innerWidth / 3.4;
+        };
+        connection.onstreamended = function(e) {
+            if (e.mediaElement && e.mediaElement.parentNode && e.mediaElement.parentNode.parentNode) {
+                e.mediaElement.parentNode.parentNode.removeChild(e.mediaElement.parentNode);
+            }
+        };
+        var snapshotsContainer = document.getElementById('snapshots-container');
+        connection.connect();
+		
+		var buttonsContainer = document.getElementById('buttons-container');
+// DetectRTC.load --- to make sure all devices are captured
+// connection.enumerateDevices --- to get list of all captured devices
+connection.DetectRTC.load(function() {
+    connection.enumerateDevices(function(devices) {
+        // iterate over devices-array
+        devices.forEach(function(device) {
+            // skip audio devices
+            if (device.kind.indexOf('audio') != -1) return;
+            var button = document.createElement('button');
+            button.id = device.deviceId;
+            button.innerHTML = device.label || device.deviceId;
+            button.onclick = function() {
+                this.disabled = true;
+                connection.selectDevices(this.id);
+                connection.dontCaptureUserMedia = false;
+                connection.captureUserMedia(function(stream) {
+                    connection.attachStreams.push(stream);
+                    connection.dontCaptureUserMedia = true;
+                    if (document.getElementById('broadcast-all-cameras').disabled == true) {
+                        document.getElementById('broadcast-all-cameras').disabled = false;
+						// document.getElementById('broadcast-all-cameras').style.background = '-webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.05, rgb(143, 231, 253)), to(rgb(255, 255, 255)))';
+                        document.getElementById('broadcast-all-cameras').style.background = '-webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.05, rgb(195, 35, 56)), to(rgb(255, 15, 15)))';
+                        document.getElementById('broadcast-all-cameras').style.color = 'white';
+                    }
+                    alert('Please do not forget to click "Broadcast All Cameras" red-button.');
+                });
+            };
+            buttonsContainer.appendChild(button);
+        });
+    });
+});
+        </script>
+
+        <br/>
+        <br/>
+
+        
+
+        
+
+        <br/>
+        <br/>
+        
+    
+
+   
+
+    <!-- commits.js is useless for you! -->
+    <script src="//cdn.webrtc-experiment.com/commits.js" async>
+    </script>
+</body>
+<footer>
+
+</footer>
+</html>
