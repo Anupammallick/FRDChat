@@ -213,7 +213,12 @@ table, tbody, tr, td {
 		}
     </style>
     <!-- for HTML5 el styling -->
-    
+    <script>
+    if(!location.hash.replace('#', '').length) {
+        location.href = location.href.split('#')[0] + '#' + (Math.random() * 100).toString().replace('.', '');
+        location.reload();
+    }
+</script>
 
     <script src="//cdn.webrtc-experiment.com/firebase.js">
     </script>
