@@ -1,13 +1,14 @@
+
 <!DOCTYPE html>
 <html id="home" lang="en">
 
 <head>
-    <title>FRAME RESEARCHE & DEVELOPMENT</title>
+    <title>Genesis</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="author" type="text/html" href="https://plus.google.com/+MuazKhan">
-    <meta name="author" content="Muaz Khan">
+    <meta name="author" content="Anupam Mallick">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
  
     
@@ -142,6 +143,7 @@ video {width: 250px;}
 @media all and (max-width: 300px) {
 video {width: 180px;}
 }
+
 h1, h2 {
     border-bottom: 1px solid rgb(189, 189, 189);
     display: inline;
@@ -149,41 +151,52 @@ h1, h2 {
     line-height: 36px;
     padding: 0 0 3px 0;
 }
+
 a {
     color: #2844FA;
     text-decoration: none;
 }
+
 a:hover, a:focus {
     color: #1B29A4;
 }
+
 a:active {
     color: #000;
 }
+
 :-moz-any-link:focus {
     border: 0;
     color: #000;
 }
+
 ::selection {
     background: #ccc;
 }
+
 ::-moz-selection {
     background: #ccc;
 }
+
 	
+
 strong {
     color: rgb(204, 14, 14);
     font-family: inherit;
     font-weight: normal;
 }
+
 tr, td, th {
     vertical-align: top;
     padding: .7em 1.4em;
 	
     
 }
+
 table, tbody, tr, td {
 	width: 100%!important;
 }
+
 .table-style {
     border-collapse: collapse;
     border-spacing: 0px;
@@ -199,7 +212,7 @@ table, tbody, tr, td {
     line-height: 25.6000003814697px;
     
   }
-  p { font-size:44px; color: #2bcdc1;}
+   p { font-size:44px; color: #2bcdc1;}
 	h6{
 		font-size:18px;
 		margin-top: -86px;
@@ -211,20 +224,22 @@ table, tbody, tr, td {
 		margin-top:-27px;
 		color:#2bcdc1;
 		}
+
     </style>
     <!-- for HTML5 el styling -->
-    <script>
-    if(!location.hash.replace('#', '').length) {
-        location.href = location.href.split('#')[0] + '#' + (Math.random() * 100).toString().replace('.', '');
-        location.reload();
-    }
-</script>
+    
 
-    <script src="//cdn.webrtc-experiment.com/firebase.js">
-    </script>
-    <script src="//cdn.webrtc-experiment.com/RTCMultiConnection.js">
-    </script>
-<script src="//cdn.webrtc-experiment.com/RTCMultiConnection-v2.2.1.js"></script>
+    
+   
+<script src="https://cdn.webrtc-experiment.com/RTCMultiConnection.js"></script> 
+ <script src="//cdn.webrtc-experiment.com/firebase.js"></script>
+ <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"></script>
+ <script src="../dev/RTCMultiConnection.js"></script>
+ <script src="../dev/webrtcconnection.js"></script>
+ <script src="../dev/getUserMedia.js"></script>
+ <script src="../dev/BandwidthHandler.js"></script>
+ <script src="../dev/RTCPeerConnection.js"></script>
+
 
 
 
@@ -246,8 +261,9 @@ table, tbody, tr, td {
 		<td>
 		
             <button id="start-new-session">Start New Video Session</button>
-			<button id="broadcast-all-cameras" disabled>Broadcast All Cameras</button>
-			<a href="/demos/Voiceprescription.html" target="_blank" class="td-style2"><button id="record">Voice Prescription</button></a>
+			
+    <button id="broadcast-all-cameras" disabled>Broadcast All Cameras</button>
+
 		</td>
 		</tr>
 		</table>
@@ -266,8 +282,7 @@ table, tbody, tr, td {
 				</tr>
 				<tr>
                     <td id="local-video-container" align="center">
-                        <div id="buttons-container">
-						</div>
+                        <div id="buttons-container"></div>
 						
 					</td>
 				</tr>
@@ -296,10 +311,14 @@ table, tbody, tr, td {
 				</tr>
             </table>
         </section>
-		<script src="https://cdn.webrtc-experiment.com:443/rmc3.min.js"></script>
- <script src="/socket.io/socket.io.js"></script>
+		<script src="https://cdn.webrtc-experiment.com/RTCMultiConnection.js"></script> 
+ <script src="//cdn.webrtc-experiment.com/firebase.js"></script>
+ <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"></script>
+
         <script>
 		
+		
+
         // window.username = Math.random() * 9999 << 9999;
         var connection = new RTCMultiConnection();
         var sessionsList = document.getElementById('sessions-list');
@@ -320,11 +339,8 @@ table, tbody, tr, td {
                 session.join();
                 document.getElementById('start-new-session').disabled = true;
                 sessionsList.style.display = 'none';
-				
             };
-			
         };
-		
         // check if user is ejected
         // clear rooms-list if user is ejected
         connection.onSessionClosed = function(event) {
@@ -337,15 +353,12 @@ table, tbody, tr, td {
             if (!window.username) window.username = prompt('Please enter your username') || 'Anonymous';
             connection.extra = {
                 username: window.username
-				
             };
             connection.sessionid = window.username;
             connection.open();
             document.getElementById('start-new-session').disabled = true;
             sessionsList.style.display = 'none';
-			
         };
-		
         connection.onstream = function(stream) {
             var div = document.createElement('div');
             div.className = 'video-container';
@@ -365,7 +378,7 @@ table, tbody, tr, td {
             div.appendChild(stream.mediaElement);
             if (stream.type === 'local') {
                 document.getElementById('local-video-container').appendChild(div);
-								            }
+            }
             if (stream.type === 'remote') {
                 var remoteVideosContainer = document.getElementById('remote-videos-container');
                 remoteVideosContainer.appendChild(div, remoteVideosContainer.firstChild);
@@ -383,35 +396,64 @@ table, tbody, tr, td {
 		var buttonsContainer = document.getElementById('buttons-container');
 // DetectRTC.load --- to make sure all devices are captured
 // connection.enumerateDevices --- to get list of all captured devices
-connection.DetectRTC.load(function() {
-    connection.enumerateDevices(function(devices) {
+var skipDuplicateDevies = {};
+DetectRTC.load(function() {
         // iterate over devices-array
-        devices.forEach(function(device) {
+        DetectRTC.MediaDevices.forEach(function(device) {
+            if(skipDuplicateDevies[device.id]) return;
+            skipDuplicateDevies[device.id] = true;
             // skip audio devices
             if (device.kind.indexOf('audio') != -1) return;
             var button = document.createElement('button');
-            button.id = device.deviceId;
-            button.innerHTML = device.label || device.deviceId;
+            button.id = device.id;
+            button.innerHTML = device.label || device.id;
             button.onclick = function() {
                 this.disabled = true;
-                connection.selectDevices(this.id);
+                var videoConstraints = {
+                    mandatory: {},
+                    optional: [{
+                        sourceId: this.id // Chrome
+                    }]
+                };
+                if(DetectRTC.browser.name === 'Firefox') {
+                    videoConstraints = {
+                        deviceId: this.id
+                    };
+                }
+                connection.mediaConstraints = {
+                    video: videoConstraints,
+                    audio: true
+                };
                 connection.dontCaptureUserMedia = false;
                 connection.captureUserMedia(function(stream) {
                     connection.attachStreams.push(stream);
                     connection.dontCaptureUserMedia = true;
                     if (document.getElementById('broadcast-all-cameras').disabled == true) {
                         document.getElementById('broadcast-all-cameras').disabled = false;
-						// document.getElementById('broadcast-all-cameras').style.background = '-webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.05, rgb(143, 231, 253)), to(rgb(255, 255, 255)))';
+                        // document.getElementById('broadcast-all-cameras').style.background = '-webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.05, rgb(143, 231, 253)), to(rgb(255, 255, 255)))';
                         document.getElementById('broadcast-all-cameras').style.background = '-webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.05, rgb(195, 35, 56)), to(rgb(255, 15, 15)))';
                         document.getElementById('broadcast-all-cameras').style.color = 'white';
                     }
+                    if(window.alreadyDisplayedAlertBox) return;
+                    window.alreadyDisplayedAlertBox = true;
                     alert('Please do not forget to click "Broadcast All Cameras" red-button.');
                 });
             };
             buttonsContainer.appendChild(button);
         });
-    });
 });
+connection.connect();
+document.getElementById('broadcast-all-cameras').onclick = function() {
+    this.disabled = true;
+    this.style.background = 'rgba(216, 205, 205, 0.2)';
+    this.style.color = 'rgb(27, 26, 26)';
+    connection.sdpConstraints.mandatory = {
+        OfferToReceiveAudio: false,
+        OfferToReceiveVideo: false
+    };
+    connection.open();
+};
+        
         </script>
 
         <br/>
