@@ -244,10 +244,11 @@ table, tbody, tr, td {
 		</tr>
 		<tr>
 		<td>
-		
-            <button id="start-new-session">Start New Video Session</button>
+		 <button id="start-new-session">Start New Video Session</button>
 			<button id="broadcast-all-cameras" disabled>Broadcast All Cameras</button>
-    
+           <button id="btnLeaveSession" name="btnLeaveSession">Disconnect Room</button>
+           <button onclick="myFunction()">Rejoin Room</button>
+            <button id="Voice" value="Voice Prescription"><a href="/FRD/Voiceprescription.html" target="_blank" class="td-style2">Voice Prescription</a></button>
 
 		</td>
 		</tr>
@@ -303,6 +304,12 @@ table, tbody, tr, td {
 <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"></script>
 <script src="https://cdn.webrtc-experiment.com/firebase.js"></script>
  <script src="https://cdn.webrtc-experiment.com/getMediaElement.js"></script>
+	
+	 <script>
+function myFunction() {
+    location.reload();
+}
+</script>
         <script>
 		
         // window.username = Math.random() * 9999 << 9999;
@@ -338,6 +345,9 @@ table, tbody, tr, td {
                 sessionsList.style.display = 'block';
             }
         };
+		btnLeaveSession.onclick = function() {
+    connection.leave();
+};
         document.getElementById('start-new-session').onclick = function() {
             if (!window.username) window.username = prompt('Please enter your username') || 'Anonymous';
             connection.extra = {
