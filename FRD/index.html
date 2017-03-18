@@ -7,13 +7,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="author" type="text/html" href="https://plus.google.com/+MuazKhan">
+    <link rel="author" type="text/html" href="https://plus.google.com/u/0/">
     <meta name="author" content="Anupam Mallick">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
  
     
-
-
+<link href="css/bootstrap.css" rel="stylesheet"/>
+<link href="css/bootstrap-progressbar-3.3.4" rel="stylesheet"/>
 
     <style>
 		html {background: #71bde0; 
@@ -224,6 +224,63 @@ table, tbody, tr, td {
 		margin-top:-27px;
 		color:#2bcdc1;
 		}
+		
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #C0C0C0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #FFF;
+}
+
+	
+.header-logo{ width:48%; float:left;}
+.header-logo img { width:50;}
+.header-menu { width:48%; float:right;}
+.header-menu ul {float:right;}
+.header-top { width:100%;}
+@media(max-width:1199px ){
+	.header-logo{ width:48%; float:left;}
+.header-menu { width:48%; float:right;}
+.header-menu ul {float:right;}
+	}
+@media(max-width:991px ){
+	.header-logo{ width:48%; float:left;}
+.header-menu { width:48%; float:right;}
+.header-menu ul {float:right;}
+	}
+@media(max-width:767px ){
+	.header-logo{ width:48%; float:left;}
+.header-menu { width:48%; float:right;}
+.header-menu ul {float:right;}
+	}
+@media(max-width:480px ){
+	.header-logo{ width:48%; float:left;}
+.header-menu { width:48%; float:right;}
+.header-menu ul {float:right;}
+	}
+@media(max-width:360px ){
+	.header-logo{ width:48%; float:left;}
+.header-menu { width:48%; float:right;}
+.header-menu ul {float:right;}
+	}
+
 
     </style>
     <!-- for HTML5 el styling -->
@@ -231,25 +288,32 @@ table, tbody, tr, td {
 </head>
 
 <body>
+<div class="header-top">
+<div class="header-logo">
+<img src="http://theshawphoto.com/wp-content/uploads/2017/02/Page_6.png"/>
+</div>
+
+<div class="header-menu">
+
+<ul>
+  <li><a href="#"><button id="start-new-session"><img src="http://theshawphoto.com/wp-content/uploads/2017/02/Camera-icon-e1487673441291.png"/></button></a></li>
+  <li><a href="#"><button id="btnLeaveSession" name="btnLeaveSession"><img src="http://theshawphoto.com/wp-content/uploads/2017/02/stop-flat-e1487673547628.png"/></button></a></li>
+  <li><a href="#"><button onclick="myFunction()"><img src="http://theshawphoto.com/wp-content/uploads/2017/02/reload-icon-19-e1487673261507.png"/></button></a></li>
+  <li><a href="/demos/Voiceprescription.html" target="_blank"><button id="Voice" value="Voice Prescription"><img src="http://theshawphoto.com/wp-content/uploads/2017/02/com.audioRec-w250-e1487673395861.png"/></button></a></li>
+  <li><a href="/demos/Switch-Cameras.html" target="_blank"><button id="Voice" value="Voice Prescription"><img src="http://theshawphoto.com/wp-content/uploads/2017/02/com.audioRec-w250-e1487673395861.png"/></button></a></li>
+</ul>
+
+</div>
+</div>
     
         <div id="head-logo">
 		<table>
 		<tr>
-		<td><!--<img src="http://theshawphoto.com/wp-content/uploads/2016/07/genesis-logo-e1477034809685.png"/>-->
-			<p>FRD</p>
-          <!--<img src="" title="FRAME RESEARCHE & DEVELOPMENT"/>-->
-          <h6>FRAME RESEARCHE & DEVELOPMENT</h6>
-          <h4>(FRD Tele Clinic  v 1.0)</h4>
-		</td>
-		</tr>
-		<tr>
 		<td>
-		 <button id="start-new-session">Start New Video Session</button>
+		
+            
 			<button id="broadcast-all-cameras" disabled>Broadcast All Cameras</button>
-           <button id="btnLeaveSession" name="btnLeaveSession">Disconnect Room</button>
-           <button onclick="myFunction()">Rejoin Room</button>
-            <button id="Voice" value="Voice Prescription"><a href="/FRD/Voiceprescription.html" target="_blank" class="td-style2">Voice Prescription</a></button>
-
+           
 		</td>
 		</tr>
 		</table>
@@ -260,8 +324,9 @@ table, tbody, tr, td {
             
                <section id="snapshots-container"></section>
 <div id="buttons-containera">
-    
+     
 </div>
+
             <table width: Auto>
 			  <tr>
 				<td align="center"><h2>Local Videos Room</h2></td>
@@ -290,28 +355,33 @@ table, tbody, tr, td {
                 </tr>
 				<tr>
 					<td>
-						<div id="videos-container">
-				 
-						</div>
+						<div id="videos-container"></div>
 					</td>
 				</tr>
-		   
-
+                
             </table>
+            
+            
+</table>
         </section>
-       
+        
 		<script src="https://cdn.webrtc-experiment.com/RTCMultiConnection.js"></script>
 <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"></script>
 <script src="https://cdn.webrtc-experiment.com/firebase.js"></script>
  <script src="https://cdn.webrtc-experiment.com/getMediaElement.js"></script>
-	
-	 <script>
+ 
+
+
+ <script>
 function myFunction() {
     location.reload();
 }
 </script>
+ 
         <script>
 		
+
+
         // window.username = Math.random() * 9999 << 9999;
         var connection = new RTCMultiConnection();
         var sessionsList = document.getElementById('sessions-list');
@@ -336,6 +406,8 @@ function myFunction() {
             };
 			
         };
+
+        
 		
         // check if user is ejected
         // clear rooms-list if user is ejected
@@ -343,11 +415,14 @@ function myFunction() {
             if (event.isEjected) {
                 sessionsList.innerHTML = '';
                 sessionsList.style.display = 'block';
+
             }
         };
-		btnLeaveSession.onclick = function() {
+
+       btnLeaveSession.onclick = function() {
     connection.leave();
 };
+
         document.getElementById('start-new-session').onclick = function() {
             if (!window.username) window.username = prompt('Please enter your username') || 'Anonymous';
             connection.extra = {
@@ -395,6 +470,26 @@ function myFunction() {
         var snapshotsContainer = document.getElementById('snapshots-container');
         connection.connect();
 		
+		
+		
+		function enumerateDevices(stream) {
+    MediaStreamTrack.getSources(function (data) {
+        for (var i = 0; i < data.length; i++) {
+            var label;
+            if (data[i].kind === "audio") {
+                label = data[i].label.length > 0 ? data[i].label : "Audio Device";
+                $("#audio-devices").append($("<option>", { value: data[i].id }).text(label));
+            }
+            else {
+                label = data[i].label.length > 0 ? data[i].label : "Video Device";
+                $("#video-devices").append($("<option>", { value: data[i].id }).text(label));
+            }
+        }
+    });
+}
+		
+		
+		
 		var buttonsContainer = document.getElementById('buttons-container');
 // DetectRTC.load --- to make sure all devices are captured
 // connection.enumerateDevices --- to get list of all captured devices
@@ -429,6 +524,19 @@ connection.DetectRTC.load(function() {
 });
 
 
+ document.getElementById('disconnect-room').onclick = function() {
+                if (!connection.peers[connection.connectionDescription.remoteUserId]) return;
+                this.disabled = true;
+                connection.peers[connection.connectionDescription.remoteUserId].peer.close();
+                document.getElementById('rejoin-room').disabled = false;
+            };
+            document.getElementById('rejoin-room').onclick = function() {
+                this.disabled = true;
+                connection.rejoin(connection.connectionDescription);
+                document.getElementById('disconnect-room').disabled = false;
+            };
+
+
         </script>
 
         <br/>
@@ -444,7 +552,7 @@ connection.DetectRTC.load(function() {
     <script src="//cdn.webrtc-experiment.com/commits.js" async>
     </script>
 </body>
-<footer>
-
-</footer>
+<footer id="footer">
+    
+  </footer>
 </html>
