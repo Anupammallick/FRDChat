@@ -299,8 +299,7 @@ li a:hover {
   <li><a href="#"><button id="start-new-session"><img src="http://theshawphoto.com/wp-content/uploads/2017/02/Camera-icon-e1487673441291.png"/></button></a></li>
   <li><a href="#"><button id="btnLeaveSession" name="btnLeaveSession"><img src="http://theshawphoto.com/wp-content/uploads/2017/02/stop-flat-e1487673547628.png"/></button></a></li>
   <li><a href="#"><button onclick="myFunction()"><img src="http://theshawphoto.com/wp-content/uploads/2017/02/reload-icon-19-e1487673261507.png"/></button></a></li>
-  <li><a href="/FRD/Voiceprescription.html" target="_blank"><button id="Voice" value="Voice Prescription"><img src="http://theshawphoto.com/wp-content/uploads/2017/02/com.audioRec-w250-e1487673395861.png"/></button></a></li>
-  <li><a href="/demos/switch-cameras.html" target="_blank"><button id="Voice" value="Voice Prescription"><img src="http://theshawphoto.com/wp-content/uploads/2017/02/com.audioRec-w250-e1487673395861.png"/></button></a></li>
+  <li><a href="/demos/Voiceprescription.html" target="_blank"><button id="Voice" value="Voice Prescription"><img src="http://theshawphoto.com/wp-content/uploads/2017/02/com.audioRec-w250-e1487673395861.png"/></button></a></li>
 </ul>
 
 </div>
@@ -324,9 +323,8 @@ li a:hover {
             
                <section id="snapshots-container"></section>
 <div id="buttons-containera">
-     
+    
 </div>
-
             <table width: Auto>
 			  <tr>
 				<td align="center"><h2>Local Videos Room</h2></td>
@@ -361,15 +359,13 @@ li a:hover {
                 
             </table>
             
-            
-</table>
+           
         </section>
         
 		<script src="https://cdn.webrtc-experiment.com/RTCMultiConnection.js"></script>
 <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"></script>
 <script src="https://cdn.webrtc-experiment.com/firebase.js"></script>
  <script src="https://cdn.webrtc-experiment.com/getMediaElement.js"></script>
- 
 
 
  <script>
@@ -380,8 +376,6 @@ function myFunction() {
  
         <script>
 		
-
-
         // window.username = Math.random() * 9999 << 9999;
         var connection = new RTCMultiConnection();
         var sessionsList = document.getElementById('sessions-list');
@@ -469,26 +463,6 @@ function myFunction() {
         };
         var snapshotsContainer = document.getElementById('snapshots-container');
         connection.connect();
-		
-		
-		
-		function enumerateDevices(stream) {
-    MediaStreamTrack.getSources(function (data) {
-        for (var i = 0; i < data.length; i++) {
-            var label;
-            if (data[i].kind === "audio") {
-                label = data[i].label.length > 0 ? data[i].label : "Audio Device";
-                $("#audio-devices").append($("<option>", { value: data[i].id }).text(label));
-            }
-            else {
-                label = data[i].label.length > 0 ? data[i].label : "Video Device";
-                $("#video-devices").append($("<option>", { value: data[i].id }).text(label));
-            }
-        }
-    });
-}
-		
-		
 		
 		var buttonsContainer = document.getElementById('buttons-container');
 // DetectRTC.load --- to make sure all devices are captured
