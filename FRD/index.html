@@ -367,8 +367,10 @@ li a:hover {
         
 		<script src="https://cdn.webrtc-experiment.com/RTCMultiConnection.js"></script>
 <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"></script>
-<script src="https://cdn.webrtc-experiment.com/firebase.js"></script>
+ 
+
  <script src="https://cdn.webrtc-experiment.com/getMediaElement.js"></script>
+
 
 
  <script>
@@ -380,6 +382,7 @@ function myFunction() {
         <script>
 		
         // window.username = Math.random() * 9999 << 9999;
+		
         var connection = new RTCMultiConnection();
         var sessionsList = document.getElementById('sessions-list');
         connection.onNewSession = function(session) {
@@ -533,3 +536,17 @@ connection.DetectRTC.load(function() {
     
   </footer>
 </html>
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var firebase = new Firebase('https://' + (connection.firebase || 'FRChat') + '.firebaseIO.com/' + firebaseChannel);
+  var config = {
+    apiKey: "AIzaSyAHNrkAeQBs9RLFH-owNDeUmqtrzvrta3M",
+    authDomain: "avian-bird-137623.firebaseapp.com",
+    databaseURL: "https://avian-bird-137623.firebaseio.com",
+    projectId: "avian-bird-137623",
+    storageBucket: "avian-bird-137623.appspot.com",
+    messagingSenderId: "728944867749"
+  };
+  firebase.initializeApp(config);
+</script>
