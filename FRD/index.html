@@ -460,7 +460,7 @@ function myFunction() {
                 var remoteVideosContainer = document.getElementById('remote-videos-container');
                 remoteVideosContainer.appendChild(div, remoteVideosContainer.firstChild);
             }
-            stream.mediaElement.width = innerWidth / 3.4;
+            stream.mediaElement.width = innerWidth ;
         };
         connection.onstreamended = function(e) {
             if (e.mediaElement && e.mediaElement.parentNode && e.mediaElement.parentNode.parentNode) {
